@@ -1,20 +1,20 @@
 package com.gumballdylan.wordleclone
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.View
-import android.widget.EditText
+import android.util.Log
 import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
+
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-    }
 
-    fun updateName(view: View) {
-        val textView = findViewById<TextView>(R.id.txt)
-        val inputText = findViewById<EditText>(R.id.textInput)
-        textView.text = "Hello " + inputText.text
+        val intent = intent
+        val str = intent.getStringExtra("username").toString()
+        Log.d("str", str)
+        val username = findViewById<TextView>(R.id.textUsername)
+        username.setText(str)
     }
 }
