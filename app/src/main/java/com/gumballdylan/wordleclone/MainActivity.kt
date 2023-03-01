@@ -112,7 +112,7 @@ class MainActivity : AppCompatActivity() {
     fun reset()
     {
         guesses=0
-        randWord=getWord()
+        setWord();
     }
 
 
