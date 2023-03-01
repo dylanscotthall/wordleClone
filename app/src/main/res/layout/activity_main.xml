@@ -8,8 +8,41 @@
     tools:context=".MainActivity">
 
     <TextView
-        android:id="@+id/textUsername"
+        android:id="@+id/greetText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="TextView" />
+
+    <TextView
+        android:id="@+id/placeholderText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView" />
+
+    <EditText
+        android:id="@+id/wordInput"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Enter your guess"
+        android:inputType="text" />
+
+    <Button
+        android:id="@+id/wordCheckBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="wordCheck"
+        android:text="Submit" />
+
+    <TextView
+        android:id="@+id/currentCorLetters"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView" />
+
+    <TextView
+        android:id="@+id/guessCorrect"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView" />
+
 </LinearLayout>
