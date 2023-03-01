@@ -21,14 +21,15 @@ class MainActivity : AppCompatActivity() {
     //words to use
     val words=arrayOf<String>("SNARE", "YUPPY","TEARS", "QUEST", "PIANO", "CREAM", "ROATE","TRAIN")
     val wordsAm:Int=7
-    var length=0
+    val length:Int =5
     var word=-1
-    var letters=  mutableListOf<String>()
+    var randWord=""
+    var guesses=0;
+
     //randomly selects which word
     fun getWord():String
     {
         word=(0..wordsAm).random()
-        length=words[word].length
         return words[word]
     }
 
@@ -36,7 +37,7 @@ class MainActivity : AppCompatActivity() {
 
 
     //checks if the letter is in the word and if it has already been used
-    fun checkLetter(c:String,word:String ):Boolean
+    /*fun checkLetter(c:String,word:String ):Boolean
     {
         if (letters.contains(c))
         {
@@ -48,22 +49,74 @@ class MainActivity : AppCompatActivity() {
             letters.add(c)
             return word.contains(c,ignoreCase = true)
         }
-    }
+    }*/
 
-    fun fullLogic()
+    fun setWord()
     {
-        //get word
-        //display word length but hidden letters  UI
-        //allow user input  UI
-        //check if letter is in word
-        //add letter to list of used letters
-        //display correct or incorrect  UI
-        //show letter block  UI
-        // and then show word at end UI
-        //allow a reset and retry
+        randWord=getWord()
+    }
+
+    fun fullLogic(iWord:String,)
+    {
+       guesses+1
+        if (iWord.equals(randWord))
+        {
+            //display correct word output or whatever
+        }
+        else
+        {
+
+            var corLetters = mutableListOf<Char>()
+
+            for (i in 0..4)
+            {
+
+                var letter = iWord.get(i)
+                for (j in 0..4)
+                {
+                    var wletter = randWord.get(j)
+                    if (letter==wletter)
+                    {
+                        if (!(corLetters.contains(letter)))
+                        {
+                            corLetters.add(letter)
+                        }
+                    }
+                }
+            }
+
+            if (corLetters.isNotEmpty())
+            {
+                //return the letters from corletters and say they are correct
+                if (corLetters.count()==5)
+                {
+                    //right letters but wrong order
+                }
+            }
+            else
+            {
+                //output for incorrect letters
+            }
+            if (guesses==4)
+            {
+                //display that it is the last guess
+
+            }
+
+            if ( guesses==5)
+            {
+                //lock out user and end screen
+            }
+        }
+
 
     }
 
+    fun reset()
+    {
+        guesses=0
+        randWord=getWord();
+    }
 
 
 }
