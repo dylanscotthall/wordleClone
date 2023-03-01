@@ -7,6 +7,7 @@ import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import java.util.*
 
 
 class MainActivity : AppCompatActivity() {
@@ -74,7 +75,7 @@ class MainActivity : AppCompatActivity() {
 
     fun fullLogic(iWord: String) {
         guesses += 1
-        if (iWord.equals(randWord)) {
+        if (iWord.uppercase(Locale.ROOT).equals(randWord)) {
             Toast.makeText(this, "YOU WIN", Toast.LENGTH_LONG).show()
         } else {
 
