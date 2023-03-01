@@ -55,19 +55,20 @@ class MainActivity : AppCompatActivity() {
 
 
     //checks if the letter is in the word and if it has already been used
-    /*fun checkLetter(c:String,word:String ):Boolean
+    fun checkLetter(c:Char,word:String ):Boolean
     {
-        if (letters.contains(c))
+        for (i in 0..4)
         {
-            //use on ui for already used letter
-            return false
+            if (word.get(i)==(c))
+            {
+                return true
+            }
         }
-        else
-        {
-            letters.add(c)
-            return word.contains(c,ignoreCase = true)
-        }
-    }*/
+
+
+          return false
+
+    }
 
     fun setWord() {
         randWord = getWord()
@@ -91,15 +92,11 @@ class MainActivity : AppCompatActivity() {
 //            {
 //
 //                var letter = iWord.get(i)
-//                for (j in 0..4)
+//                if (checkLetter(letter,randWord))
 //                {
-//                    var wletter = randWord.get(j)
-//                    if (letter==wletter)
+//                    if (!(corLetters.contains(letter)))
 //                    {
-//                        if (!(corLetters.contains(letter)))
-//                        {
-//                            corLetters.add(letter)
-//                        }
+//                        corLetters.add(letter)
 //                    }
 //                }
 //            }
