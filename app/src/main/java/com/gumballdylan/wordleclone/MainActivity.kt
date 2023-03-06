@@ -18,7 +18,6 @@ class MainActivity : AppCompatActivity() {
         setWord()
 
         //show placeholders as _
-        var placeholders = ""
         for (c in randWord){
             placeholders += "_ "
         }
@@ -28,19 +27,21 @@ class MainActivity : AppCompatActivity() {
         val greetMsg = "Hello " + intent.getStringExtra("username").toString() + " guess the word!"
         val username = findViewById<TextView>(R.id.greetText)
         username.text = greetMsg
+        findViewById<TextView>(R.id.guessCorrect).text = guesses.toString()
     }
 
     fun wordCheck(view: View) {
         val guess = findViewById<EditText>(R.id.wordInput).text
-        findViewById<TextView>(R.id.guessCorrect).text = guesses.toString()
         fullLogic(guess.toString())
+        findViewById<TextView>(R.id.guessCorrect).text = guesses.toString()
+
     }
 
     //words to use
+    var placeholders=""
     val words =
         arrayOf<String>("SNARE", "YUPPY", "TEARS", "QUEST", "PIANO", "CREAM", "ROATE", "TRAIN")
     val wordsAm: Int = words.size-1
-    val length: Int = 5
     var word = -1
     var randWord = ""
     var guesses = 0
@@ -94,6 +95,9 @@ class MainActivity : AppCompatActivity() {
                 }
             }
 
+            revealLetters(corLetters)
+            findViewById<TextView>(R.id.placeholderText).text = placeholders
+
 
 
             if (corLetters.isNotEmpty()) {
@@ -102,7 +106,7 @@ class MainActivity : AppCompatActivity() {
                 findViewById<TextView>(R.id.currentCorLetters).text = corLett
 
                 if (corLetters.count() == 5) {
-                    findViewById<TextView>(R.id.currentCorLetters).text = "All letters are correct but in the wrong order"
+                    findViewById<TextView>(R.id.currentCorLetters).text = "All letters are correct Type in the correct word to win"
                 }
                 else
                 {
@@ -129,11 +133,40 @@ class MainActivity : AppCompatActivity() {
 
     fun reset() {
         guesses = 0
+        findViewById<TextView>(R.id.guessCorrect).text = guesses.toString()
         randWord = getWord()
+        placeholders=""
+        for (c in randWord){
+            placeholders += "_ "
+        }
+        findViewById<TextView>(R.id.placeholderText).text = placeholders
+
         corLetters = mutableListOf<Char>()
+        findViewById<TextView>(R.id.currentCorLetters).text ="[]"
         inCorLetters=mutableListOf<Char>()
+        findViewById<TextView>(R.id.currentIncorLetters).text="[]"
     }
 
+
+    fun revealLetters(letters:List<Char> )
+    {
+        var wordSpaced=randWord
+        wordSpaced=wordSpaced
+            .subSequence(0, wordSpaced.length)
+            .chunked(1)
+            .joinToString(" ")
+        for (c in letters)
+        {
+            var index = wordSpaced.indexOf(c,ignoreCase = true)
+            while (index != -1)
+            {
+                placeholders=placeholders.replaceRange(index,index+1,""+c)
+                //placeholders=placeholders.take(index)+c+placeholders.drop(index+1);
+                index = wordSpaced.indexOf(c, index + 1,ignoreCase = true)
+            }
+
+        }
+    }
 
 }
 
