@@ -2,47 +2,61 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/linearLayout2"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+    android:gravity="center">
 
     <TextView
         android:id="@+id/greetText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="150dp"
         android:text="TextView" />
 
     <TextView
         android:id="@+id/placeholderText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="TextView" />
+        android:text="TextView"
+        android:layout_marginBottom="100dp"/>
 
     <EditText
         android:id="@+id/wordInput"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:hint="Enter your guess"
-        android:inputType="text" />
+        android:inputType="text"
+        android:layout_marginBottom="100dp"/>
 
     <Button
         android:id="@+id/wordCheckBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:onClick="wordCheck"
-        android:text="Submit" />
+        android:text="Submit"
+        android:layout_marginBottom="50dp"/>
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Current Letters Guessed"
+        android:layout_marginBottom="20dp"/>
 
     <TextView
         android:id="@+id/currentCorLetters"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="TextView" />
+        android:text="[]"
+        android:layout_marginBottom="100dp"/>
 
     <TextView
         android:id="@+id/guessCorrect"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="TextView" />
+        android:text="" />
+
 
 </LinearLayout>

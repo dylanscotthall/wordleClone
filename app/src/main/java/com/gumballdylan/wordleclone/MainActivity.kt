@@ -75,9 +75,9 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun fullLogic(iWord: String) {
-        guesses += 1
         if (iWord.uppercase(Locale.ROOT).equals(randWord)) {
             Toast.makeText(this, "YOU WIN", Toast.LENGTH_LONG).show()
+            reset()
         } else {
 
             //slightly improved efficiency only using one for loop
@@ -117,6 +117,7 @@ class MainActivity : AppCompatActivity() {
             if (guesses == 5) {
                 reset()
             }
+            guesses += 1
         }
 
 
@@ -124,7 +125,8 @@ class MainActivity : AppCompatActivity() {
 
     fun reset() {
         guesses = 0
-        randWord = getWord();
+        randWord = getWord()
+        corLetters = mutableListOf<Char>()
     }
 
 
