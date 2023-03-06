@@ -7,55 +7,96 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".MainActivity"
+    android:background="@color/cardview_shadow_start_color"
     android:gravity="center">
 
     <TextView
         android:id="@+id/greetText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="150dp"
+        android:layout_marginBottom="100dp"
+        android:textSize="40dp"
         android:text="TextView" />
 
     <TextView
         android:id="@+id/placeholderText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:textSize="30dp"
         android:text="TextView"
-        android:layout_marginBottom="100dp"/>
+        android:layout_marginBottom="40dp"/>
+
 
     <EditText
         android:id="@+id/wordInput"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="100dp"
         android:hint="Enter your guess"
         android:inputType="text"
-        android:layout_marginBottom="100dp"/>
+        android:textSize="40dp" />
 
     <Button
         android:id="@+id/wordCheckBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:onClick="wordCheck"
+        android:textSize="30dp"
         android:text="Submit"
         android:layout_marginBottom="50dp"/>
+
     <TextView
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Current Letters Guessed"
+        android:text=" Correct Letters Guessed"
+        android:textColor="@color/black"
+        android:textSize="30dp"
         android:layout_marginBottom="20dp"/>
 
     <TextView
         android:id="@+id/currentCorLetters"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="80dp"
         android:text="[]"
-        android:layout_marginBottom="100dp"/>
+        android:textColor="#023020"
+        android:textSize="30dp" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Incorrect Letters Guessed"
+        android:textColor="@color/black"
+        android:textSize="30dp"
+        android:layout_marginBottom="20dp"/>
+
+    <TextView
+        android:id="@+id/currentIncorLetters"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="50dp"
+        android:text="[]"
+        android:textColor="#FF0000"
+        android:textSize="30dp" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Guess Number"
+        android:textColor="@color/black"
+        android:textSize="30dp"
+
+        android:layout_marginBottom="20dp"/>
 
     <TextView
         android:id="@+id/guessCorrect"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:textSize="30dp"
+        android:textColor="#0000FF"
         android:text="" />
 
 

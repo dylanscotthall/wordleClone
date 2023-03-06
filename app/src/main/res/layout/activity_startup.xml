@@ -7,7 +7,9 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:gravity="center"
+    android:background="@color/cardview_shadow_start_color"
     tools:context=".StartupActivity">
+
 
     <TextView
         android:id="@+id/textView"
@@ -16,6 +18,8 @@
         android:scaleX="2"
         android:scaleY="2"
         android:text="WordleClone"
+        android:textColor="@color/purple_500"
+        android:textSize="30dp"
         android:layout_marginBottom="80dp"/>
 
     <EditText
@@ -23,6 +27,7 @@
         android:layout_height="wrap_content"
         android:layout_width="wrap_content"
         android:hint="Enter your name"
+        android:textSize="40dp"
         android:inputType="text"
         android:minHeight="48dp"
         android:layout_marginBottom="50dp"/>

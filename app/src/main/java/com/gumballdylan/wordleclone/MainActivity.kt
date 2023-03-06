@@ -45,6 +45,7 @@ class MainActivity : AppCompatActivity() {
     var randWord = ""
     var guesses = 0
     var corLetters = mutableListOf<Char>()
+    var inCorLetters= mutableListOf<Char>()
 
 
     //randomly selects which word
@@ -64,10 +65,7 @@ class MainActivity : AppCompatActivity() {
                 return true
             }
         }
-
-
           return false
-
     }
 
     fun setWord() {
@@ -78,6 +76,7 @@ class MainActivity : AppCompatActivity() {
         if (iWord.uppercase(Locale.ROOT).equals(randWord)) {
             Toast.makeText(this, "YOU WIN", Toast.LENGTH_LONG).show()
             reset()
+            return
         } else {
 
             //slightly improved efficiency only using one for loop
@@ -87,35 +86,40 @@ class MainActivity : AppCompatActivity() {
                         corLetters.add(c.uppercaseChar())
                     }
                 }
+                else
+                {
+                    if (!inCorLetters.contains(c.uppercaseChar())) {
+                        inCorLetters.add(c.uppercaseChar())
+                    }
+                }
             }
-//            for (i in 0..4)
-//            {
-//
-//                var letter = iWord.get(i)
-//                if (checkLetter(letter,randWord))
-//                {
-//                    if (!(corLetters.contains(letter)))
-//                    {
-//                        corLetters.add(letter)
-//                    }
-//                }
-//            }
+
+
 
             if (corLetters.isNotEmpty()) {
                 val corLett = corLetters.toString()
+                val inlet=inCorLetters.toString()
                 findViewById<TextView>(R.id.currentCorLetters).text = corLett
+
                 if (corLetters.count() == 5) {
-                    //right letters but wrong order
+                    findViewById<TextView>(R.id.currentCorLetters).text = "All letters are correct but in the wrong order"
                 }
-            } else {
+                else
+                {
+                    findViewById<TextView>(R.id.currentIncorLetters).text = inlet
+                }
+            }
+            else {
                 findViewById<TextView>(R.id.currentCorLetters).text = "no correct letters yet"
             }
             if (guesses == 4) {
-                Toast.makeText(this, "Last Chance", Toast.LENGTH_LONG).show()
+                Toast.makeText(this, "Last Chance to guess", Toast.LENGTH_LONG).show()
             }
 
             if (guesses == 5) {
                 reset()
+                Toast.makeText(this, "You've Lost the Game: Resetting with new word", Toast.LENGTH_LONG).show()
+
             }
             guesses += 1
         }
@@ -127,6 +131,7 @@ class MainActivity : AppCompatActivity() {
         guesses = 0
         randWord = getWord()
         corLetters = mutableListOf<Char>()
+        inCorLetters=mutableListOf<Char>()
     }
 
 
