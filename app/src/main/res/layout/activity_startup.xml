@@ -39,4 +39,11 @@
         android:onClick="updateName"
         android:text="Submit" />
 
+    <Button
+        android:id="@+id/button_send2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="word"
+        android:text="View Words" />
+
 </LinearLayout>

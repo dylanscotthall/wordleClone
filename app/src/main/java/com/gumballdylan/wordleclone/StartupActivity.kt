@@ -29,4 +29,11 @@ class StartupActivity : AppCompatActivity() {
         i.putExtra("username", inputText.text.toString())
         startActivity(i)
     }
+
+    fun word(view:View)
+    {
+        val i = Intent(this@StartupActivity, WordView::class.java)
+
+        startActivity(i)
+    }
 }
